@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/student")
+@RequestMapping("api/v1/students")
 @RequiredArgsConstructor
 public class StudentRestController {
 
@@ -22,13 +22,18 @@ public class StudentRestController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
+    public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
         return ResponseEntity.ok(studentService.saveStudent(student));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<Student>> getAllStudents() {
+    public ResponseEntity<List<Student>> findAllStudents() {
         return ResponseEntity.ok(studentService.findAllStudents());
+    }
+
+    @GetMapping(value = "/school/{school-id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Student>> findAllStudentsBySchool(@PathVariable("school-id") Integer schoolId) {
+        return ResponseEntity.ok(studentService.findAllStudentsBySchool(schoolId));
     }
 }
