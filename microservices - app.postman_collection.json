@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "fd4db083-5094-4751-beaa-3b28f8ae1c72",
+		"name": "microservices - app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11742352",
+		"_collection_link": "https://orange-station-300896.postman.co/workspace/New-Team-Workspace~cf931197-d494-4b20-a349-7cb4177461f6/collection/11742352-fd4db083-5094-4751-beaa-3b28f8ae1c72?action=share&source=collection_link&creator=11742352"
+	},
+	"item": [
+		{
+			"name": "student service",
+			"item": [
+				{
+					"name": "save student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dicei\",\r\n    \"lastName\": \"tres\",\r\n    \"email\": \"quincetres@example.com\",\r\n    \"schoolId\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8222/api/v1/students"
+					},
+					"response": []
+				},
+				{
+					"name": "get all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8222/api/v1/students"
+					},
+					"response": []
+				},
+				{
+					"name": "find All Students By School",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8222/api/v1/students/school/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "school service",
+			"item": [
+				{
+					"name": "save school",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"School 5\",\r\n    \"email\": \"school3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8222/api/v1/schools"
+					},
+					"response": []
+				},
+				{
+					"name": "get all schools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8222/api/v1/schools"
+					},
+					"response": []
+				},
+				{
+					"name": "find schools with students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8222/api/v1/schools/with-students/2"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
